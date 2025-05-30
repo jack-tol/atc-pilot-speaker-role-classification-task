@@ -1,0 +1,6 @@
+datasets
+transformers[torch]
+hf_xet
+sentencepiece
+matplotlib
+seaborn

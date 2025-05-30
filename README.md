@@ -4,6 +4,8 @@ This repository provides a complete pipeline for a binary sequence classificatio
 
 Unlike traditional approaches that rely on audio or acoustic cues (such as voice characteristics or channel separation), this project addresses the task entirely in the **text domain**, leveraging transformer-based architectures to make speaker role predictions based on the lexical and structural content of each transmission.
 
+The fine-tuned speaker role classification model used in this project is available on Hugging Face and can be accessed [here](https://huggingface.co/jacktol/atc_pilot_speaker_role_classification_model).
+
 ## Task Description
 
 The model performs binary classification on single-turn utterances, assigning one of two speaker roles:

@@ -19,9 +19,9 @@ Each utterance is treated independently without relying on dialogue or turn-leve
 
 The final fine-tuned model achieves the following metrics on the test set:
 
-- **Accuracy**: 96.64%  
-- **Precision**: 96.40%  
-- **Recall**: 96.91%  
+- **Accuracy**: 96.64%
+- **Precision**: 96.40%
+- **Recall**: 96.91%
 - **F1 Score**: 96.65%
 
 ## Model Architecture
@@ -54,28 +54,28 @@ This model is suitable for:
 
 Use the following format to test predictions:
 
-```  
-Input: "CLEARED FOR TAKEOFF RUNWAY ONE ONE LEFT"  
+```
+Input: "CLEARED FOR TAKEOFF RUNWAY ONE ONE LEFT"
 Prediction: "ATC"
 
-Input: "REQUESTING PUSHBACK"  
-Prediction: "PILOT"  
+Input: "REQUESTING PUSHBACK"
+Prediction: "PILOT"
 ```
 
 ## Benchmark Comparison
 
 This work builds upon and improves prior text-based speaker role classification research. For example, a related model by [Juan Zuluaga-Gomez](https://huggingface.co/Jzuluaga/bert-base-speaker-role-atc-en-uwb-atcc), which uses a BERT-base architecture, achieves:
 
-- **Accuracy**: 89.03%  
-- **Precision**: 87.10%  
-- **Recall**: 91.63%  
+- **Accuracy**: 89.03%
+- **Precision**: 87.10%
+- **Recall**: 91.63%
 - **F1 Score**: 89.31%
 
 In comparison, this repository presents a **DeBERTa-v3-large** model with significantly improved performance:
 
-- **Accuracy**: 96.64%  
-- **Precision**: 96.40%  
-- **Recall**: 96.91%  
+- **Accuracy**: 96.64%
+- **Precision**: 96.40%
+- **Recall**: 96.91%
 - **F1 Score**: 96.65%
 
 Evaluation notebooks (`evaluate_juans_model.ipynb` and `evaluate_jacks_model.ipynb`) are provided to reproduce these comparisons using the same test set.
@@ -86,27 +86,37 @@ This repository includes all necessary tools to preprocess text data, fine-tune 
 
 ### Training
 
-- **`training_script/train.py`**  
+- **`training_script/train.py`**
   Fine-tunes the model using a preprocessed dataset. Includes FP16 support, early stopping, and evaluation.
+
+### Dataset Processing
+- **`uwb_data_processing/process_uwb_dataset.py`**
+  Processes the raw UWB dataset through a pipeline of conversions, cleaning, filtering, and mappings to generate the speaker role classification dataset.
 
 ### Evaluation
 
-- **`evaluation_scripts/evaluate_jacks_model.ipynb`**  
+- **`evaluation_scripts/evaluate_jacks_model.ipynb`**
   Runs full evaluation of the DeBERTa-v3-large model with classification metrics.
 
-- **`evaluation_scripts/evaluate_juans_model.ipynb`**  
+- **`evaluation_scripts/evaluate_juans_model.ipynb`**
   Compares Juan Zuluaga-Gomez’s BERT-based model on the same test set.
 
 ### Utilities
 
-- **`utils/save_model_from_checkpoint.py`**  
+- **`utils/save_model_from_checkpoint.py`**
   Converts training checkpoint directories into standalone Hugging Face-compatible model folders.
 
-- **`utils/upload_model_to_hf.py`**  
+- **`utils/upload_dataset_to_hf.py`**  
+  Takes the processed speaker role classification dataset, evenly splits it into training, validation, and test sets, and uploads the resulting dataset to the Hugging Face Hub.
+
+- **`utils/upload_model_to_hf.py`**
   Uploads a trained model and tokenizer to the Hugging Face Hub.
 
-- **`utils/requirements.txt`**  
+- **`utils/requirements.txt`**
   Lists all Python packages required for training and evaluation.
+
+- **`utils/utils.py`**
+  Includes mappings for general text corrections, phonetic representations, number-to-word conversions, diacritics handling, and other preprocessing steps used in transforming the UWB raw dataset for the speaker role classification dataset.
 
 ## References
 

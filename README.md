@@ -86,37 +86,30 @@ This repository includes all necessary tools to preprocess text data, fine-tune 
 
 ### Training
 
-- **`training_script/train.py`**
-  Fine-tunes the model using a preprocessed dataset. Includes FP16 support, early stopping, and evaluation.
+- **`training_script/train.py`** Fine-tunes the model using a preprocessed dataset. Includes FP16 support, early stopping, and evaluation.
 
 ### Dataset Processing
-- **`uwb_data_processing/process_uwb_dataset.py`**
-  Processes the raw UWB dataset through a pipeline of conversions, cleaning, filtering, and mappings to generate the speaker role classification dataset.
+- **`uwb_data_processing/process_uwb_dataset.py`** Processes the raw UWB dataset through a pipeline of conversions, cleaning, filtering, and mappings to generate the speaker role classification dataset.
 
 ### Evaluation
 
-- **`evaluation_scripts/evaluate_jacks_model.ipynb`**
-  Runs full evaluation of the DeBERTa-v3-large model with classification metrics.
+- **`evaluation_scripts/evaluate_jacks_model.ipynb`** Runs full evaluation of the DeBERTa-v3-large model with classification metrics.
 
-- **`evaluation_scripts/evaluate_juans_model.ipynb`**
-  Compares Juan Zuluaga-Gomez’s BERT-based model on the same test set.
+- **`evaluation_scripts/evaluate_juans_model.ipynb`** Compares Juan Zuluaga-Gomez’s BERT-based model on the same test set.
 
 ### Utilities
 
-- **`utils/save_model_from_checkpoint.py`**
-  Converts training checkpoint directories into standalone Hugging Face-compatible model folders.
+- **`utils/save_model_from_checkpoint.py`** Converts training checkpoint directories into standalone Hugging Face-compatible model folders.
 
-- **`utils/upload_dataset_to_hf.py`**  
-  Takes the processed speaker role classification dataset, evenly splits it into training, validation, and test sets, and uploads the resulting dataset to the Hugging Face Hub.
+- **`utils/upload_dataset_to_hf.py`** Takes the processed speaker role classification dataset, evenly splits it into training, validation, and test sets, and uploads the resulting dataset to the Hugging Face Hub.
 
-- **`utils/upload_model_to_hf.py`**
-  Uploads a trained model and tokenizer to the Hugging Face Hub.
+- **`utils/upload_model_to_hf.py`** Uploads a trained model and tokenizer to the Hugging Face Hub.
 
-- **`utils/requirements.txt`**
-  Lists all Python packages required for training and evaluation.
+- **`utils/requirements.txt`** Lists all Python packages required for training and evaluation.
 
-- **`utils/utils.py`**
-  Includes mappings for general text corrections, phonetic representations, number-to-word conversions, diacritics handling, and other preprocessing steps used in transforming the UWB raw dataset for the speaker role classification dataset.
+- **`setup.sh`** Bash script that sets up a compute VM instance by removing pre-installed deep learning packages to ensure a clean environment.
+
+- **`utils/utils.py`** Includes mappings for general text corrections, phonetic representations, number-to-word conversions, diacritics handling, and other preprocessing steps used in transforming the UWB raw dataset for the speaker role classification dataset.
 
 ## References
 

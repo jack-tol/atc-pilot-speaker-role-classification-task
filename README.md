@@ -6,6 +6,8 @@ Unlike traditional approaches that rely on audio or acoustic cues (such as voice
 
 The fine-tuned speaker role classification model used in this project is available on Hugging Face and can be accessed [here](https://huggingface.co/jacktol/atc_pilot_speaker_role_classification_model).
 
+The processed UWB ATC speaker role classification dataset can be found on Hugging Face Datasets [here](https://huggingface.co/datasets/jacktol/atc-pilot-speaker-role-classification-dataset).
+
 ## Task Description
 
 The model performs binary classification on single-turn utterances, assigning one of two speaker roles:
@@ -113,5 +115,6 @@ This repository includes all necessary tools to preprocess text data, fine-tune 
 
 ## References
 
-- [Juan Zuluaga-Gomez’s Hugging Face Model](https://huggingface.co/Jzuluaga/bert-base-speaker-role-atc-en-uwb-atcc)
-- [DeBERTa: Decoding-enhanced BERT with Disentangled Attention (Microsoft)](https://github.com/microsoft/DeBERTa)
+- [Juan Zuluaga-Gomez’s Hugging Face Model](https://huggingface.co/Jzuluaga/bert-base-speaker-role-atc-en-uwb-atcc)  
+- [DeBERTa: Decoding-enhanced BERT with Disentangled Attention (Microsoft)](https://github.com/microsoft/DeBERTa)  
+- [ATC-Pilot Speaker Role Classification Dataset](https://huggingface.co/datasets/jacktol/atc-pilot-speaker-role-classification-dataset)
